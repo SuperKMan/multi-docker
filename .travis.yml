@@ -9,14 +9,14 @@ script:
   - docker run kman/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t kman/multi-client ./client
-  - docker build -t kman/multi-nginx ./nginx
-  - docker build -t kman/multi-server ./server
-  - docker build -t kman/multi-worker ./worker
+  - docker build -t 3571138/multi-client ./client
+  - docker build -t 3571138/multi-nginx ./nginx
+  - docker build -t 3571138/multi-server ./server
+  - docker build -t 3571138/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Push images to docker hub
-  - docker push kman/multi-client
-  - docker push kman/multi-nginx
-  - docker push kman/multi-server
-  - docker push kman/multi-worker
+  - docker push 3571138/multi-client
+  - docker push 3571138/multi-nginx
+  - docker push 3571138/multi-server
+  - docker push 3571138/multi-worker
