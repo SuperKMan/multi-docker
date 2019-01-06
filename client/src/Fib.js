@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Fib extends Component {
+class Fib extends Component {
   state = {
     seenIndexes: [],
     values: {},
@@ -20,7 +20,9 @@ export default class Fib extends Component {
 
   async fetchIndexes() {
     const seenIndexes = await axios.get("/api/values/all");
-    this.setState({ seenIndexes: seenIndexes.data });
+    this.setState({
+      seenIndexes: seenIndexes.data
+    });
   }
 
   handleSubmit = async event => {
@@ -61,12 +63,15 @@ export default class Fib extends Component {
           />
           <button>Submit</button>
         </form>
+
         <h3>Indexes I have seen:</h3>
         {this.renderSeenIndexes()}
 
-        <h3>Calculate Values:</h3>
+        <h3>Calculated Values:</h3>
         {this.renderValues()}
       </div>
     );
   }
 }
+
+export default Fib;
